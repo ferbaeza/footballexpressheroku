@@ -6,6 +6,8 @@ const methodOverride = require('method-override')
 //const port = 3000;
 const port= process.env.PORT || 3000; // heroku
 
+app.get('/times', (req, res) => res.send(showTimes()))
+
 const Player = require('./models/player');
 
 mongoose.connect('mongodb://127.0.0.1:27017/fbh', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -84,3 +86,11 @@ app.listen(port, () => {
 })
 
 
+showTimes = () => {
+    let result = '';
+    const times = process.env.TIMES || 5555;
+    for (i = 0; i < times; i++) {
+      result += i + ' ';
+    }
+    return result;
+  }
