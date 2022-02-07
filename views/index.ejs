@@ -36,22 +36,17 @@
               </p>
             </article>
         </div>
-
-        <div class="control has-text-centered">
-            <a href="/players/new"><button class="button is-dark">New Player</button></a>
-        </div>
-    
         <% for(let player of players) {%>
 
-        <div class="tile is-ancestor has-text-centered mt-5">
-        <div class="tile is-22 has-text-centered">
+        <div class="has-text-centered mt-5">
+        <div class="has-text-centered">
             <a href="/players/<%=player._id%>">
               <div class="tile is-child box">
                 <div class="notification is-info">
-                <p class="title"><%= player.name %>  <%= player.surname %>  <%= player.team %> </p>
+                <p class="title"><%= player.name %>  <%= player.surname %>  </p>
               </div> 
-              <p class="title has-text-info"><%= player.team %></p>
-              <p>Age: <span class="has-text-success"><%= player.age %></span> Position: <span class="has-text-success"><%= player.position %></span></p>
+              <p class="is-size-5 has-text-info"><%= player.team %></p>
+              <p>Age: <span class="has-text-info"><%= player.age %></span> Position: <span class="has-text-info"><%= player.position %></span></p>
               <div class="control mt-3">
                 <form method="POST" action="/players/<%=player._id%>?_method=DELETE">
                     <button class="button is-danger">Delete</button>
@@ -69,7 +64,7 @@
 
 
     </div>
-    <div class="container is-max-widescreen mt-4">
+    <!--<div class="container is-max-widescreen mt-4">
         <article class="panel is-dark">
             <p class="panel-heading has-text-centered">
                 Filter Players by <span class="has-text-info">Positions</span> or by <span class="has-text-warning">Teams</span>
@@ -100,6 +95,6 @@
             </p>
           </article>
 
-    </div>
+    </div>-->
 </body>
 </html>
