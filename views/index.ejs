@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <title>players</title>
+</head>
+<body>
+        <div class="has-text-centered notification is-dark">
+          <h1 class="title">Players</h1>
+
+          <p class="panel-heading has-text-centered has-background-dark is-dark">
+            <a href="/"><button class="button mr-4 is-dark has-text-centered">Home</button></a>
+            <a href="/players/new"><button class="button is-dark">New Player</button></a>
+          </p>
+          
+        </div>  
+        <div class="container is-max-widescreen mt-4">
+          <article class="panel is-dark">
+              <p class="panel-heading has-text-centered">
+                  Filter Players by <span class="has-text-info">Positions</span> or by <span class="has-text-warning">Teams</span>
+              </p>
+              <p class="panel-tabs">
+                <a href="/?pos=GK"> <button class="button is-dark has-text-info is-size-5"> Goalkeeper</button></a>
+                <a href="/?pos=DF"> <button class="button is-dark has-text-info is-size-5"> Defending</button></a>
+                <a href="/?pos=MF"> <button class="button is-dark has-text-info is-size-5"> Midfield</button></a>
+                <a href="/?pos=FW"> <button class="button is-dark has-text-info is-size-5"> Forward</button></a>
+                <a href="/?team=REAL MADRID"> <button class="button is-dark has-text-warning is-size-5"> REAL MADRID</button></a>
+                <a href="/?team=FC BARCELONA"> <button class="button is-dark has-text-warning is-size-5"> FC BARCELONA</button></a>
+                <a href="/?team=PSG"> <button class="button is-dark has-text-warning is-size-5"> PSG</button></a>
+                <a href="/?team=BAYER MUNINCH"> <button class="button is-dark has-text-warning is-size-5"> BAYER MUNINCH</button></a>
+                <a href="/?team=BORUSSIA DORTMUND"> <button class="button is-dark has-text-warning is-size-5"> BORUSSIA DORTMUND</button></a>
+              </p>
+            </article>
+        </div>
+
+        <div class="control has-text-centered">
+            <a href="/players/new"><button class="button is-dark">New Player</button></a>
+        </div>
+    
+        <% for(let player of players) {%>
+
+        <div class="tile is-ancestor has-text-centered mt-5">
+        <div class="tile is-22 has-text-centered">
+            <a href="/players/<%=player._id%>">
+              <div class="tile is-child box">
+                <div class="notification is-info">
+                <p class="title"><%= player.name %>  <%= player.surname %>  <%= player.team %> </p>
+              </div> 
+              <p class="title has-text-info"><%= player.team %></p>
+              <p>Age: <span class="has-text-success"><%= player.age %></span> Position: <span class="has-text-success"><%= player.position %></span></p>
+              <div class="control mt-3">
+                <form method="POST" action="/players/<%=player._id%>?_method=DELETE">
+                    <button class="button is-danger">Delete</button>
+                </form>
+            </div>
+ 
+
+            </div>    
+
+              </a>
+        
+        </div>
+        </div>
+          <% } %>
+
+
+    </div>
+    <div class="container is-max-widescreen mt-4">
+        <article class="panel is-dark">
+            <p class="panel-heading has-text-centered">
+                Filter Players by <span class="has-text-info">Positions</span> or by <span class="has-text-warning">Teams</span>
+            </p>
+            <p class="panel-tabs">
+              <a href="/?pos=GK"> <button class="button is-dark has-text-info is-size-5"> Goalkeeper</button></a>
+              <a href="/?pos=DF"> <button class="button is-dark has-text-info is-size-5"> Defending</button></a>
+              <a href="/?pos=MF"> <button class="button is-dark has-text-info is-size-5"> Midfield</button></a>
+              <a href="/?pos=FW"> <button class="button is-dark has-text-info is-size-5"> Forward</button></a>
+              <a href="/?team=REAL MADRID"> <button class="button is-dark has-text-warning is-size-5"> REAL MADRID</button></a>
+              <a href="/?team=FC BARCELONA"> <button class="button is-dark has-text-warning is-size-5"> FC BARCELONA</button></a>
+              <a href="/?team=PSG"> <button class="button is-dark has-text-warning is-size-5"> PSG</button></a>
+              <a href="/?team=BAYER MUNINCH"> <button class="button is-dark has-text-warning is-size-5"> BAYER MUNINCH</button></a>
+              <a href="/?team=BORUSSIA DORTMUND"> <button class="button is-dark has-text-warning is-size-5"> BORUSSIA DORTMUND</button></a>
+            </p>
+          </article>
+        <br>
+        <article class="panel is-dark">
+            <p class="panel-heading has-text-centered">
+                Find Players by Teams
+            </p>
+            <p class="panel-tabs">
+              <a href="/?team=REAL MADRID"> <button class="button is-dark"> REAL MADRID</button></a>
+              <a href="/?team=FC BARCELONA"> <button class="button is-dark"> FC BARCELONA</button></a>
+              <a href="/?team=PSG"> <button class="button is-dark"> PSG</button></a>
+              <a href="/?team=BAYER MUNINCH"> <button class="button is-dark"> BAYER MUNINCH</button></a>
+              <a href="/?team=BORUSSIA DORTMUND"> <button class="button is-dark"> BORUSSIA DORTMUND</button></a>
+            </p>
+          </article>
+
+    </div>
+</body>
+</html>

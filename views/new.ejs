@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <title>New fichaje</title>
+</head>
+<body>
+  <div class="has-text-centered notification is-dark">
+    <h1 class="title">Players</h1>
+    <p class="panel-heading has-text-centered has-background-dark is-dark">
+      <a href="/"><button class="button mr-4 is-dark has-text-centered">Home</button></a>
+    </p>    
+  </div>  
+
+    <div class="container is-max-widescreen">
+        <div class="notification is-primary">
+            <h2 class="subtitle">New Player</h2>
+        </div>
+    <form action="/players" method="POST">
+        <div class="container-max-width">
+            <label class="label is-medium m-auto w-auto">Name</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium"type="text" name="name" placeholder="Name">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope fa-xs"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check fa-xs"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-medium">Surname</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium"type="text" name="surname" placeholder="Surname">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope fa-xs"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check fa-xs"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-half">Age</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="number" name="age" value="16" placeholder="Age of Player">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope fa-xs"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check fa-xs"></i>
+              </span>
+            </div>
+          </div>
+        <div class="control">
+            <div class="select">
+                <select name="position">
+                    <% for(let pos of positions) { %>
+                        <option value="<%=pos%>"><%=pos%></option>
+                    <% } %> 
+                </select>
+            </div>
+          </div>
+        <div class="control">
+            <div class="select">
+                <select name="team">
+                    <% for(let te of teams) { %>
+                        <option value="<%=te%>"><%=te%></option>
+                    <% } %> 
+                </select>
+                    </div>
+          </div>
+
+        <div class="control">
+            <button class="button is-primary">Submit</button>
+          </div>
+    </form>
+</div>
+
+</body>
+</html>

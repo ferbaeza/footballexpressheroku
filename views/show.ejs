@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <title>Players</title>
+</head>
+<body>
+    <div class="has-text-centered notification is-dark">
+        <h1 class="title">Player Info</h1>
+        <p class="panel-heading has-text-centered has-background-dark is-dark">
+          <a href="/"><button class="button mr-4 is-dark has-text-centered">Home</button></a>
+          <a href="/players/new"><button class="button is-dark">New Player</button></a>
+        </p>
+      </div>  
+
+    <div class="container is-max-widescreen">
+        <div class="notification is-info">
+
+            <p class="title"><strong>Name: </strong> <%= player.name %> <strong>Surname: </strong> <%= player.surname %> <strong>Team: </strong> <%= player.team %> </p>
+            <p class="title"></p><strong>Age</strong>:  <%= player.age %>   <strong>Position</strong> : <%= player.position %></p>
+            <div class="control mt-5">
+                <form method="POST" action="/players/<%=player._id%>?_method=DELETE">
+                    <button class="button is-danger">Delete Player</button>
+                </form>
+            </div>
+            <div class="control mt-3">
+                <a href="/players/<%= player.id %>/edit">
+                    <button class="button is-warning">Edit info</button>
+                </a>
+            </div>
+        
+            
+        </div>
+
+    <div class="control mt-3">
+        <a href="/">
+            <button class="button is-dark">Back</button>
+        </a>
+    </div>
+</form>
+
+
+</body>
+</html>
